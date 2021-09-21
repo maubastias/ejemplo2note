@@ -13,13 +13,30 @@ export class Pagina1Page implements OnInit {
   ngOnInit() {
   }
 
-  grabar(){
-    persona = new FormGroup({
-      v_rut = new FormControl(''),
-      v_nombre = new FormControl(''),
-      v_edad = new FormControl('')
-      });
+  elRut = new FormControl('');
+  elNombre = new FormControl('');
+  laEdad = new FormControl('');
 
+  persona = new FormGroup({
+    elRut : new FormControl(''),
+    elNombre : new FormControl(''),
+    laEdad : new FormControl('')
+  });
+
+  lista_persona = new Array();
+  perso: any;
+  grabar(){
+
+    console.log('Comienzo el proceso');
+    this.perso = {
+      rut : this.persona.controls.elRut.value,
+      nombre : this.persona.controls.elNombre.value,
+      edad : this.persona.controls.laEdad.value
+    };
+    console.log(this.perso);
+
+    this.lista_persona.push(this.perso);
+    localStorage.setItem('datos',JSON.stringify(this.lista_persona));
   }
 
 }
