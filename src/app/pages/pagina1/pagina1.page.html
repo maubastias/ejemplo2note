@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pagina 1 - Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="formulario">
+  <h1>Formulario Registro</h1>
+  <form [formGroup]="persona" (ngSubmit)="grabar()">
+    <ion-item>
+    <ion-label position="floating">RUT</ion-label>
+    <ion-input formControlName="rut"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Edad</ion-label>
+    <ion-input formControlName="edad"></ion-input>
+    </ion-item>
+
+  <ion-button color="primary" expand="full" type="submit">Guardar</ion-button>
+  <ion-button color="warning">Listar</ion-button>
+  <ion-button color="danger">Eliminar</ion-button>
+  <ion-button color="light">Limpiar</ion-button>
+  </form>
+  </div>
+
+</ion-content>
