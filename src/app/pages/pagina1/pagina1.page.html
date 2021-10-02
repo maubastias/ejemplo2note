@@ -11,18 +11,21 @@
     <ion-item>
     <ion-label position="floating">RUT</ion-label>
     <ion-input formControlName="elRut"></ion-input>
+    <ion-label color="danger" *ngIf="persona.controls.elRut.errors?.required && (persona.touched || persona.dirty)">*El rut es obligatorio</ion-label>
     </ion-item>
     <ion-item>
     <ion-label position="floating">Nombre</ion-label>
     <ion-input formControlName="elNombre"></ion-input>
+    <ion-label color="danger" *ngIf="persona.controls.elNombre.errors?.required && (persona.touched || persona.dirty)">*El Nombre es obligatorio</ion-label>
+    <ion-label color="danger" *ngIf="persona.controls.elNombre.errors?.minlength && (persona.touched || persona.dirty)">*El Nombre es debe tener al menos 3 letras</ion-label>
     </ion-item>
     <ion-item>
     <ion-label position="floating">Edad</ion-label>
     <ion-input formControlName="laEdad"></ion-input>
     </ion-item>
 
-  <ion-button color="primary" expand="full" type="submit">Guardar</ion-button>
-  <ion-button color="warning">Listar</ion-button>
+  <ion-button color="primary" expand="full" type="submit" [disabled]="!persona.valid">Guardar</ion-button>
+  <ion-button color="warning" routerLink="/pagina2">Listar</ion-button>
   <ion-button color="danger">Eliminar</ion-button>
   <ion-button color="light">Limpiar</ion-button>
   </form>

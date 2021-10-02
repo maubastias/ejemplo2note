@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pagina1',
@@ -13,14 +13,10 @@ export class Pagina1Page implements OnInit {
   ngOnInit() {
   }
 
-  elRut = new FormControl('');
-  elNombre = new FormControl('');
-  laEdad = new FormControl('');
-
   persona = new FormGroup({
-    elRut : new FormControl(''),
-    elNombre : new FormControl(''),
-    laEdad : new FormControl('')
+    elRut : new FormControl('',Validators.required),
+    elNombre : new FormControl('',[Validators.required,Validators.minLength(3)]),
+    laEdad : new FormControl('',[Validators.min(0),Validators.max(130),Validators.required])
   });
 
   lista_persona = new Array();
@@ -37,6 +33,11 @@ export class Pagina1Page implements OnInit {
 
     this.lista_persona.push(this.perso);
     localStorage.setItem('datos',JSON.stringify(this.lista_persona));
+    alert('Persona almacenada');
+    this.persona.controls.elRut.setValue('');
+    this.persona.controls.elNombre.setValue('');
+    this.persona.controls.laEdad.setValue('');
+    
   }
 
 }

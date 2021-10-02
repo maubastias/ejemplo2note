@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagina4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf = "qrData">
+
+  <ngx-qrcode [elementType]="elementType" [value]="qrData"></ngx-qrcode>  
+  <ion-input type="text" placeholder="Ingrese direccion" [(ngModel)]="qrData"></ion-input>  
+  </ion-card>
+  
+</ion-content>
